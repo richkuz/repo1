@@ -1,0 +1,16 @@
+name: Issue Triage
+on:
+  issues:
+    types: [labeled]
+    
+jobs:
+  assign_to_project:
+    runs-on: ubuntu-latest
+    name: Assign labelled issues to projects
+    steps:
+      - name: Assign to project
+        uses: elastic/github-actions/project-assigner@v1.0.0
+        id: project_assigner
+        with:
+          issue-mappings: '[{"label": "project", "projectName": "Repo1and2", "columnId":13613892}]'
+          ghToken: ${{ secrets.GITHUB_TOKEN }}
