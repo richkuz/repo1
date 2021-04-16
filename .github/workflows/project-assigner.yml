@@ -12,5 +12,5 @@ jobs:
         uses: richkuz/github-actions/project-assigner@v2.1.0
         id: project_assigner
         with:
-          issue-mappings: '[{"label": "project", "projectName": "Repo1and2", "columnId":13613892}]'
+          issue-mappings: '[{"label": "project", "repo": "repo1", "projectName": "Repo1and2", "columnId": 13889744}]'
           ghToken: ${{ secrets.GITHUB_TOKEN }}
