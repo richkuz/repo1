@@ -13,4 +13,4 @@ jobs:
         id: project_assigner
         with:
           issue-mappings: '[{"label": "project", "projectNumber": "1", "columnName": "To Do", "projectScope": "user"}]'
-          ghToken: ${{ secrets.GITHUB_TOKEN }}
+          ghToken: ${{ secrets.MY_GITHUB_ACTIONS_TOKEN }}
