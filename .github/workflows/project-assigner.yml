@@ -12,5 +12,5 @@ jobs:
         uses: richkuz/github-actions/project-assigner@v2.1.0
         id: project_assigner
         with:
-          issue-mappings: '[{"label": "project", "projectNumber": "1", "columnName": "To Do", "projectScope": "user"}]'
+          issue-mappings: '[{"label": "project", "projectNumber": "1", "columnName": "To do", "projectScope": "user"}]'
           ghToken: ${{ secrets.MY_GITHUB_ACTIONS_TOKEN }}
