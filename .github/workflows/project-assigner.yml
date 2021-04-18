@@ -10,9 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     name: Assign labelled issues to projects
     steps:
-      - name: Assign to project
+      - name: Assign to repo and user projects
         uses: richkuz/github-actions/project-assigner@v2.1.0
         id: project_assigner
         with:
-          issue-mappings: '[{"label": "project", "projectNumber": "1", "columnName": "To do", "projectScope": "user"}]'
+          issue-mappings: |
+            [
+              {"label": "repo-project", "projectNumber": "1", "columnName": "To Do", "projectScope": "repo"},
+              {"label": "user-project", "projectNumber": "1", "columnName": "To do", "projectScope": "user"}
+            ]
           ghToken: ${{ secrets.MY_GITHUB_ACTIONS_TOKEN }}
