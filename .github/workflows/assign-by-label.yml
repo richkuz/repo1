@@ -1,0 +1,23 @@
+name: Assign issues by label
+
+on:
+  pull_request:
+    types: [ labeled ]
+
+jobs:
+  build:
+    if: ${{ github.event.label.name == 'foo' }}
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      ISSUE_NUMBER: ${{ github.event.issue.node_id }}
+      TARGET_ASSIGNEE: "richkuz"
+      OWNER: "richkuz"
+      REPO: "repo1"
+    steps:
+    - name: Assign issues by label
+      run: |
+          curl -H "Accept: application/vnd.github+json" \
+          -H "Authorization: token ${{ env.GITHUB_TOKEN }}" \
+          -X POST -d "{\"assignees\":[\"${TARGET_ASSIGNEE}\"]}" \
+          https://api.github.com/repos/$OWNER/$REPO/issues/$ISSUE_NUMBER/assignees
