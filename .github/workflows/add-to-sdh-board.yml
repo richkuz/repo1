@@ -19,6 +19,8 @@ jobs:
           query: |
             mutation add_to_project($projectid:ID!,$contentid:ID!) {
                addProjectV2ItemById(input:{projectId:$projectid contentId:$contentid}) {
-                clientMutationId
+                item {
+                  id
+                }
               }
              }
