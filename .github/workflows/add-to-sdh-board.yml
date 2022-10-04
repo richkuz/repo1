@@ -23,4 +23,5 @@ jobs:
               }
             }
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # The default GITHUB_TOKEN env var doesn't have enough scope.
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_ACTIONS_TOKEN }}
