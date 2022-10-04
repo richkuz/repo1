@@ -6,7 +6,7 @@ on:
       - opened
 
 jobs:
-  add-to-sdh-project
+  add-to-sdh-project:
     runs-on: ubuntu-latest
     steps:
       - uses: octokit/graphql-action@v2.x
