@@ -1,4 +1,4 @@
-name: Add issue to another repo
+name: Add issue to repo2
 
 on:
   issues:
@@ -6,11 +6,11 @@ on:
       - opened
 
 jobs:
-  add-to-sdh-project:
+  add-issue-to-repo2:
     runs-on: ubuntu-latest
     steps:
       - uses: octokit/graphql-action@v2.x
-        id: add_to_repo
+        id: add_to_repo2
         with:
           # To find the ID, open the target repo, e.g. https://github.com/richkuz/repo2, right-click, View Page Source, search for data-type="repository"
           targetrepoid: "MDEwOlJlcG9zaXRvcnkzNTI2Mzc2Mjk"
@@ -26,4 +26,4 @@ jobs:
             }
         env:
           # The default GITHUB_TOKEN env var doesn't have enough scope.
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.REPO2_CREATE_ISSUE_TOKEN }}
