@@ -21,7 +21,7 @@ jobs:
                 input: {
                   repositoryId: $targetrepoid,
                   title: "${{ github.event.issue.title }}",
-                  body: "Issue created in another repo, replicated here for visibility: ${{ github.event.issue.url }}"
+                  body: "Issue created in another repo, replicated here for visibility: ${{ github.event.issue.html_url }}"
                 }
               ) {
                 issue {
