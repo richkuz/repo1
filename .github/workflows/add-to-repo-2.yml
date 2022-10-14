@@ -17,7 +17,13 @@ jobs:
           contentid: ${{ github.event.issue.node_id }}
           query: |
             mutation CreateIssue($targetrepoid:ID!) {
-              createIssue(input: {repositoryId: $targetrepoid, title: "TestIssue", body: "Foo"}) {
+              createIssue(
+                input: {
+                  repositoryId: $targetrepoid,
+                  title: "${{ github.event.issue.title }}",
+                  body: "Issue created in another repo, replicated here for visibility: ${{ github.event.issue.url }}"
+                }
+              ) {
                 issue {
                   number
                   body
