@@ -17,7 +17,7 @@ jobs:
           contentid: ${{ github.event.issue.node_id }}
           issuetitle: ${{ github.event.issue.title }}
           query: |
-            mutation CreateIssue($targetrepoid:ID!) {
+            mutation CreateIssue($targetrepoid:ID!, $issuetitle:String!) {
               createIssue(
                 input: {
                   repositoryId: $targetrepoid,
