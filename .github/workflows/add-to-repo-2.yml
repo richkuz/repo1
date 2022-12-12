@@ -15,12 +15,13 @@ jobs:
           # To find the ID, open the target repo, e.g. https://github.com/richkuz/repo2, right-click, View Page Source, search for data-type="repository"
           targetrepoid: "MDEwOlJlcG9zaXRvcnkzNTI2Mzc2Mjk"
           contentid: ${{ github.event.issue.node_id }}
+          issuetitle: ${{ github.event.issue.title }}
           query: |
             mutation CreateIssue($targetrepoid:ID!) {
               createIssue(
                 input: {
                   repositoryId: $targetrepoid,
-                  title: "${{ github.event.issue.title }}",
+                  title: $issuetitle,
                   #labelIds: ["2866102897"],
                   body: "Issue created in another repo, replicated here for visibility: ${{ github.event.issue.html_url }}"
                 }
@@ -33,4 +34,5 @@ jobs:
             }
         env:
           # The default GITHUB_TOKEN env var doesn't have enough scope.
+          # This token must be a classic token (for GraphQL access) with Repo scope.
           GITHUB_TOKEN: ${{ secrets.REPO2_CREATE_ISSUE_TOKEN }}
