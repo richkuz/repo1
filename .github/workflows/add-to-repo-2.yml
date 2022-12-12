@@ -15,7 +15,7 @@ jobs:
           # To find the ID, open the target repo, e.g. https://github.com/richkuz/repo2, right-click, View Page Source, search for data-type="repository"
           targetrepoid: "MDEwOlJlcG9zaXRvcnkzNTI2Mzc2Mjk"
           contentid: ${{ github.event.issue.node_id }}
-          issuetitle: ${{ github.event.issue.title }}
+          issuetitle: "${{ github.event.issue.title }}"
           query: |
             mutation CreateIssue($targetrepoid:ID!) {
               createIssue(
